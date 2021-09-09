@@ -30,16 +30,16 @@ const Lists = () => {
 					onClick={() => handleClick("left")}
 					style={{display: !isMoved && "none"}}/>
 				<div className={"container"} ref={listRef}>
-					<List/>
-					<List/>
-					<List/>
-					<List/>
-					<List/>
-					<List/>
-					<List/>
-					<List/>
-					<List/>
-					<List/>
+					<List index={0}/>
+					<List index={1}/>
+					<List index={2}/>
+					<List index={3}/>
+					<List index={4}/>
+					<List index={5}/>
+					<List index={6}/>
+					<List index={7}/>
+					<List index={8}/>
+					<List index={9}/>
 				</div>
 				<ArrowForwardIosOutlined className={"sliderArrow right"} onClick={() => handleClick("right")}/>
 			</div>
