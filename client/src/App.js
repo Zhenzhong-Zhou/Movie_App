@@ -1,12 +1,11 @@
 import "./app.scss";
-import {Home} from "./pages";
+import {Home, Watch} from "./pages";
 
 const App = () => {
 	return (
 		<>
-			<div>
-				<Home/>
-			</div>
+			<Home/>
+			<Watch/>
 		</>
 	);
 };
