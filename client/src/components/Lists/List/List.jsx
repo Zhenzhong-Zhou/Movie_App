@@ -1,6 +1,6 @@
+import {Add, PlayArrow, ThumbDownOutlined, ThumbUpOutlined} from "@material-ui/icons";
 import "./list.scss";
 import cover from "../../../assets/images/user5.png";
-import {Add, PlayArrow, ThumbDownOutlined, ThumbUpOutlined} from "@material-ui/icons";
 
 const List = () => {
 	return (

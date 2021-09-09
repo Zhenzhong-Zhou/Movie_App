@@ -3,7 +3,6 @@ import {ArrowBackIosOutlined, ArrowForwardIosOutlined} from "@material-ui/icons"
 import "./list.scss";
 import List from "./List/List";
 
-
 const Lists = () => {
 	const [isMoved, setIsMoved] = useState(false);
 	const [slideNumber, setSlideNumber] = useState(0);
