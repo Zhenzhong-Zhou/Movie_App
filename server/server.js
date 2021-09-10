@@ -6,6 +6,8 @@ import helmet from "helmet";
 import morgan from "morgan";
 import cors from "cors";
 
+import authRoutes from "./routes/auth.js";
+
 const app = express();
 dotenv.config();
 
@@ -17,6 +19,7 @@ app.use(morgan("common"));
 app.use(cors());
 
 // Route
+app.use("/api/auth", authRoutes);
 
 // Server listen and connect to MongoDB
 const PORT = process.env.PORT;
