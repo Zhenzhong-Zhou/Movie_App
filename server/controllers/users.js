@@ -15,5 +15,4 @@ export const update = async (req, res) => {
 	} else {
 		res.status(403).json("Cannot update this account!");
 	}
-
 };
