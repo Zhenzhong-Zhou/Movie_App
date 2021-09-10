@@ -1,6 +1,6 @@
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import "./app.scss";
-import {Home, Watch} from "./pages";
+import {Home, Register, Watch} from "./pages";
 
 const App = () => {
 	return (
@@ -11,6 +11,9 @@ const App = () => {
 				</Route>
 				<Route exact path={"/watch"}>
 					<Watch/>
+				</Route>
+				<Route exact path={"/register"}>
+					<Register/>
 				</Route>
 			</Switch>
 		</BrowserRouter>
