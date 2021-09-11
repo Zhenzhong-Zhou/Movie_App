@@ -10,7 +10,7 @@ router.put("/:id", verifyToken, update);
 // DELETE
 router.delete("/:id", verifyToken, remove);
 // FIND
-router.get("/:id", verifyToken, find);
+router.get("/find/:id", verifyToken, find);
 // FETCH RANDOM
 router.get("/random", verifyToken, fetch_random);
 
