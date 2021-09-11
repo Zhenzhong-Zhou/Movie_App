@@ -30,3 +30,13 @@ export const remove = async (req, res) => {
 		res.status(403).json("Cannot delete this account!");
 	}
 };
+// FIND
+export const find = async (req, res) => {
+	try {
+		const user = await User.findById(req.params.id);
+		const {password, ...info} = user._doc;
+		res.status(200).json(info);
+	} catch (error) {
+		res.status(500).json(error);
+	}
+};
