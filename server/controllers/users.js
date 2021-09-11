@@ -54,3 +54,26 @@ export const find_all = async (req, res) => {
 		res.status(403).json("Invalid page!");
 	}
 };
+// GET USERS STATUS
+export const status = async (req, res) => {
+	const today = new Date();
+	const lastYear = today.setFullYear(today.setFullYear() - 1);
+	try {
+		const data = await User.aggregate([
+			{
+				$project: {
+					month: {$month: "$createdAt"}
+				}
+			},
+			{
+				$group: {
+					_id: "$month",
+					total: {$sum: 1}
+				}
+			}
+		]);
+		res.status(200).json(data);
+	} catch (error) {
+		res.status(500).json(error);
+	}
+};
