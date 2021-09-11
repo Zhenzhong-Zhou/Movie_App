@@ -71,3 +71,16 @@ export const fetch_random = async (req, res) => {
 		res.status(500).json(error);
 	}
 };
+// FETCH ALL
+export const fetch_all = async (req, res) => {
+	if (req.user.isAdmin) {
+		try {
+			const movies = await Movie.find().sort({_id: -1});
+			res.status(201).json(movies);
+		} catch (error) {
+			res.status(500).json(error);
+		}
+	} else {
+		res.status(403).json("Invalid Action!");
+	}
+};
