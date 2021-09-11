@@ -1,4 +1,4 @@
-import Movie from "./../models/movie.js";
+import Movie from "../models/movie.js";
 
 // CREATE
 export const create = async (req, res) => {
