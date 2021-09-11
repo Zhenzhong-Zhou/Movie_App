@@ -9,6 +9,7 @@ import cors from "cors";
 import authRoutes from "./routes/auth.js";
 import usersRoutes from "./routes/users.js";
 import moviesRoutes from "./routes/movies.js";
+import listsRoutes from "./routes/lists.js";
 
 const app = express();
 dotenv.config();
@@ -24,6 +25,7 @@ app.use(cors());
 app.use("/api/auth", authRoutes);
 app.use("/api/users", usersRoutes);
 app.use("/api/movies", moviesRoutes);
+app.use("/api/lists", listsRoutes);
 
 // Server listen and connect to MongoDB
 const PORT = process.env.PORT;
