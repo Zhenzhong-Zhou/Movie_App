@@ -14,7 +14,7 @@ export const update = async (req, res) => {
 			res.status(500).json(error);
 		}
 	} else {
-		res.status(403).json("Cannot update this account!");
+		res.status(403).json("Cannot UPDATE this account!");
 	}
 };
 // DELETE
@@ -22,12 +22,12 @@ export const remove = async (req, res) => {
 	if (req.user.id === req.params.id || req.user.isAdmin) {
 		try {
 			await User.findByIdAndDelete(req.params.id);
-			res.status(200).json("User has been deleted!");
+			res.status(200).json("User has been DELETED!");
 		} catch (error) {
 			res.status(500).json(error);
 		}
 	} else {
-		res.status(403).json("Cannot delete this account!");
+		res.status(403).json("Cannot DELETE this account!");
 	}
 };
 // FIND

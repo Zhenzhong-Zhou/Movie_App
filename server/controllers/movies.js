@@ -11,7 +11,7 @@ export const create = async (req, res) => {
 			res.status(500).json(error);
 		}
 	} else {
-		res.status(403).json("Cannot create movie!!");
+		res.status(403).json("Cannot CREATE movie!");
 	}
 };
 // UPDATE
@@ -25,7 +25,7 @@ export const update = async (req, res) => {
 			res.status(500).json(error);
 		}
 	} else {
-		res.status(403).json("Cannot updated movie!!");
+		res.status(403).json("Cannot UPDATE movie!");
 	}
 };
 // DELETE
@@ -33,7 +33,7 @@ export const remove = async (req, res) => {
 	if (req.user.isAdmin) {
 		try {
 			await Movie.findByIdAndDelete(req.params.id);
-			res.status(200).json("Movie has been deleted!");
+			res.status(200).json("Movie has been DELETED!");
 		} catch (error) {
 			res.status(500).json(error);
 		}
