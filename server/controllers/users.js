@@ -40,3 +40,17 @@ export const find = async (req, res) => {
 		res.status(500).json(error);
 	}
 };
+// FIND ALL
+export const find_all = async (req, res) => {
+	const query = req.query.new;
+	if (req.user.isAdmin) {
+		try {
+			const users = query ? await User.find().limit(10) : await User.find();
+			res.status(200).json(users);
+		} catch (error) {
+			res.status(500).json(error);
+		}
+	} else {
+		res.status(403).json("Invalid page!");
+	}
+};
