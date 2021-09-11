@@ -41,3 +41,12 @@ export const remove = async (req, res) => {
 		res.status(403).json("Cannot DELETE movie!");
 	}
 };
+// FIND
+export const find = async (req, res) => {
+	try {
+		const movie = await Movie.findById(req.params.id);
+		res.status(200).json(movie);
+	} catch (error) {
+		res.status(500).json(error);
+	}
+};
