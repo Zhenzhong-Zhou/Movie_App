@@ -6,18 +6,10 @@ const App = () => {
 	return (
 		<BrowserRouter>
 			<Switch>
-				<Route exact path={"/"}>
-					<Home/>
-				</Route>
-				<Route exact path={"/watch"}>
-					<Watch/>
-				</Route>
-				<Route exact path={"/register"}>
-					<Register/>
-				</Route>
-				<Route exact path={"/login"}>
-					<Login/>
-				</Route>
+				<Route path={"/"} exact component={() => <Home/>}/>
+				<Route path={"/watch"} exact component={() => <Watch/>}/>
+				<Route path={"/register"} exact component={() => <Register/>}/>
+				<Route path={"/login"} exact component={() => <Login/>}/>
 			</Switch>
 		</BrowserRouter>
 	);
