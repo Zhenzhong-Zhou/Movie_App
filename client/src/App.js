@@ -7,6 +7,8 @@ const App = () => {
 		<BrowserRouter>
 			<Switch>
 				<Route path={"/"} exact component={() => <Home/>}/>
+				<Route path={"/movies"} exact component={() => <Home type={"movies"}/>}/>
+				<Route path={"/series"} exact component={() => <Home type={"series"}/>}/>
 				<Route path={"/watch"} exact component={() => <Watch/>}/>
 				<Route path={"/register"} exact component={() => <Register/>}/>
 				<Route path={"/login"} exact component={() => <Login/>}/>
