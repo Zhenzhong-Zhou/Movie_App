@@ -27,3 +27,29 @@ export const remove = async (req, res) => {
 		res.status(403).json("Cannot CREATE list!");
 	}
 };
+// FETCH ALL
+export const fetch_all = async (req, res) => {
+	const typeQuery = req.query.type;
+	const genreQuery = req.query.genre;
+	let list = [];
+	try {
+		if (typeQuery) {
+			if (genreQuery) {
+				list = await List.aggregate([
+					{$sample: {size: 10}},
+					{$match: {type: typeQuery, genre: genreQuery}}
+				]);
+			} else {
+				list = await List.aggregate([
+					{$sample: {size: 10}},
+					{$match: {type: typeQuery}}
+				]);
+			}
+		} else {
+			list = await List.aggregate([{$sample: {size: 10}}]);
+		}
+		res.status(200).json(list);
+	} catch (error) {
+		res.status(500).json(error);
+	}
+};
