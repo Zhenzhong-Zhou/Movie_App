@@ -1,9 +1,9 @@
 import {useState} from "react";
 import {ArrowDropDown, Notifications, Search} from "@material-ui/icons";
+import {Link} from "react-router-dom";
 import "./navbar.scss";
 import logo from "../../assets/images/Netflix_2015_logo.png";
 import avatar from "../../assets/images/user4.jpeg";
-import {Link} from "react-router-dom";
 
 const Navbar = () => {
 	const [isScrolled, setIsScrolled] = useState(false);

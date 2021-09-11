@@ -1,6 +1,6 @@
+import {Link} from "react-router-dom";
 import "./login.scss";
 import logo from "../../assets/images/Netflix_2015_logo.png";
-import {Link} from "react-router-dom";
 
 const Login = () => {
 	return (
