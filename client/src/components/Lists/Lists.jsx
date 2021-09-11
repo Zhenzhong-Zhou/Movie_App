@@ -3,7 +3,7 @@ import {ArrowBackIosOutlined, ArrowForwardIosOutlined} from "@material-ui/icons"
 import "./list.scss";
 import List from "./List/List";
 
-const Lists = () => {
+const Lists = ({list}) => {
 	const [isMoved, setIsMoved] = useState(false);
 	const [slideNumber, setSlideNumber] = useState(0);
 	const listRef = useRef();
@@ -23,23 +23,16 @@ const Lists = () => {
 
 	return (
 		<div className={"lists"}>
-			<span className={"listsTitle"}>Continue to watch</span>
+			<span className={"listsTitle"}>{list.title}</span>
 			<div className={"wrapper"}>
 				<ArrowBackIosOutlined
 					className={"sliderArrow left"}
 					onClick={() => handleClick("left")}
 					style={{display: !isMoved && "none"}}/>
 				<div className={"container"} ref={listRef}>
-					<List index={0}/>
-					<List index={1}/>
-					<List index={2}/>
-					<List index={3}/>
-					<List index={4}/>
-					<List index={5}/>
-					<List index={6}/>
-					<List index={7}/>
-					<List index={8}/>
-					<List index={9}/>
+					{list.content.map((item, index) => (
+						<List index={index} item={item}/>
+					))}
 				</div>
 				<ArrowForwardIosOutlined className={"sliderArrow right"} onClick={() => handleClick("right")}/>
 			</div>

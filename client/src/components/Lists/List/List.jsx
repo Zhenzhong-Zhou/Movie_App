@@ -1,20 +1,34 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Add, PlayArrow, ThumbDownOutlined, ThumbUpOutlined} from "@material-ui/icons";
 import "./list.scss";
-import cover from "../../../assets/images/user5.png";
+import {axiosInstance} from "../../../api";
 
-const List = ({index}) => {
+const List = ({item, index}) => {
 	const [isHovered, setIsHovered] = useState(false);
-	const trailer = "https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0fd273d2c6d9a064f3ae35579b2bbdf&profile_id=139&oauth2_token_id=57447761";
+	const [movie, setMovie] = useState({});
+
+	useEffect(() => {
+		const fetchMovie = async () => {
+			try {
+				const {data} = await axiosInstance.get(`/movies/find/${item}`,
+					{headers: {token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxM2IwY2QzNzFmNTRiMTYyMTNiZWU4YiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMTM1MzU1MywiZXhwIjoxNjMxMzU3MTUzfQ.IfgMagv9Pz0nMSUuF14gSQZ7MDjQmannXT5tF4s-XVg"}});
+				setMovie(data);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+		fetchMovie();
+	}, [item]);
+
 	return (
 		<div className={"list"}
 		     style={{left: isHovered && index * 225 - 50 + index * 2.5}}
 		     onMouseEnter={() => setIsHovered(true)}
 		     onMouseLeave={() => setIsHovered(false)}>
-			<img src={cover} alt={"Cover"}/>
+			<img src={movie.image} alt={"Cover"}/>
 			{isHovered && (
 				<>
-					<video src={trailer} autoPlay={true} loop/>
+					<video src={movie.trailer} autoPlay={true} loop/>
 					<div className={"listInfo"}>
 						<div className={"icons"}>
 							<PlayArrow className={"icon"}/>
@@ -23,15 +37,14 @@ const List = ({index}) => {
 							<ThumbDownOutlined className={"icon"}/>
 						</div>
 						<div className={"listInfoTop"}>
-							<span>1 hour 14 mins</span>
-							<span className={"limit"}>+16</span>
-							<span>2001</span>
+							<span>{movie.duration}</span>
+							<span className={"limit"}>+{movie.limit}</span>
+							<span>{movie.year}</span>
 						</div>
 						<div className={"descriptions"}>
-							Set in China towards the end of the Yuan dynasty, the story revolves around a pair of allegedly
-							unrivalled weapons, the Heaven-Reliant Sword
+							{movie.description}
 						</div>
-						<div className={"genre"}>Action</div>
+						<div className={"genre"}>{movie.genre}</div>
 					</div>
 				</>
 			)}
