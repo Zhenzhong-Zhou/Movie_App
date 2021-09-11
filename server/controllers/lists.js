@@ -14,3 +14,16 @@ export const create = async (req, res) => {
 		res.status(403).json("Cannot CREATE list!");
 	}
 };
+// DELETE
+export const remove = async (req, res) => {
+	if (req.user.isAdmin) {
+		try {
+			await List.findByIdAndDelete(req.body.id);
+			res.status(201).json("List has been DELETED!");
+		} catch (error) {
+			res.status(500).json(error);
+		}
+	} else {
+		res.status(403).json("Cannot CREATE list!");
+	}
+};

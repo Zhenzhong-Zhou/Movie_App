@@ -4,9 +4,8 @@ import {create} from "../controllers/lists.js";
 
 const router = express.Router();
 // CREATE
-router.post("/",verifyToken, create);
+router.post("/", verifyToken, create);
 // DELETE
-// router.delete();
-//
+router.delete("/:id", verifyToken);
 
 export default router;
