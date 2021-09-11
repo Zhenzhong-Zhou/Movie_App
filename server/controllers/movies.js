@@ -28,3 +28,16 @@ export const update = async (req, res) => {
 		res.status(403).json("Cannot updated movie!!");
 	}
 };
+// DELETE
+export const remove = async (req, res) => {
+	if (req.user.isAdmin) {
+		try {
+			await Movie.findByIdAndDelete(req.params.id);
+			res.status(200).json("Movie has been deleted!");
+		} catch (error) {
+			res.status(500).json(error);
+		}
+	} else {
+		res.status(403).json("Cannot DELETE movie!");
+	}
+};
