@@ -11,7 +11,7 @@ const WidgetSm = () => {
 		const fetchNewUsers = async () => {
 			try {
 				const {data} = await axiosInstance.get("users?new=true",
-					{headers: {token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxM2IwY2QzNzFmNTRiMTYyMTNiZWU4YiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMTQyODA5MywiZXhwIjoxNjMxNDMxNjkzfQ.prnuASpF2e-TL5oRFG4zcYBpMH89ysgj45qq2ehsGW4"}});
+					{headers: {token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken}});
 				setNewUsers(data);
 			} catch (error) {
 				console.log(error);
