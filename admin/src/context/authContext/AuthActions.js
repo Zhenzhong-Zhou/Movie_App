@@ -1,5 +1,6 @@
-import {LOGIN_FAILURE, LOGIN_START, LOGIN_SUCCESS} from "../../constants/actionTypes";
+import {LOGIN_FAILURE, LOGIN_START, LOGIN_SUCCESS, LOGOUT} from "../../constants/actionTypes";
 
+// LOGIN
 export const loginStart = () => ({
 	type: LOGIN_START
 });
@@ -10,4 +11,8 @@ export const loginSuccess = (user) => ({
 
 export const loginFailure = () => ({
 	type: LOGIN_FAILURE
+});
+// LOGOUT
+export const logout = () => ({
+	type: LOGOUT
 });

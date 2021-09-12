@@ -1,4 +1,4 @@
-import {LOGIN_FAILURE, LOGIN_START, LOGIN_SUCCESS} from "../../constants/actionTypes";
+import {LOGIN_FAILURE, LOGIN_START, LOGIN_SUCCESS, LOGOUT} from "../../constants/actionTypes";
 
 const AuthReducers = (states, actions) => {
 	switch (actions.type) {
@@ -19,6 +19,12 @@ const AuthReducers = (states, actions) => {
 				user: null,
 				isFetching: false,
 				error: true
+			};
+		case LOGOUT:
+			return {
+				user: null,
+				isFetching: false,
+				error: false
 			};
 		default:
 			return {...states}
