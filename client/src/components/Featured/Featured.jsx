@@ -1,9 +1,25 @@
+import {useEffect, useState} from "react";
 import {InfoOutlined, PlayArrow} from "@material-ui/icons";
 import "./featured.scss";
-import cover from "../../assets/images/user.jpeg";
-import name from "../../assets/images/movie_name.jpeg";
+import {axiosInstance} from "../../api";
 
 const Featured = ({type}) => {
+	const [content, setContent] = useState({});
+console.log("content: ", content.image)
+	useEffect(() => {
+		const fetchRandomContent = async () => {
+			try {
+				const {data} = await axiosInstance.get(`/movies/random?type=${type}`,
+					{headers: {token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxM2IwY2QzNzFmNTRiMTYyMTNiZWU4YiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMTQxNjg3MywiZXhwIjoxNjMxNDIwNDczfQ.Sde8hEsT5e4DnIrTHrB3tMWnNqkWG-AFCYN-bd1L5OE"}});
+				console.log("Data: ", data);
+				setContent(data[0]);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+		fetchRandomContent();
+	}, [type]);
+
 	return (
 		<div className={"featured"}>
 			{type && (
@@ -27,16 +43,11 @@ const Featured = ({type}) => {
 					</select>
 				</div>
 			)}
-			<img width={"100%"} src={cover} alt={"Cover"}/>
+			<img width={"100%"} src={content.image} alt={"Cover"}/>
 			<div className={"info"}>
-				<img width={"100%"} src={name} alt={"Cover"}/>
+				<img width={"100%"} src={content.imageTitle} alt={"Title"}/>
 				<span className={"descriptions"}>
-					South Boston teenager Jason Tripitikas is a fan of martial arts films and awakens from a dream of a
-					battle between the Monkey King and celestial soldiers in the clouds. He visits a pawn shop in
-					Chinatown to buy wuxia DVDs and discovers a golden staff. On his way home, Tripitikas is harassed
-					by some hooligans, whose leader Lupo attempts to use him to help them rob the shop-owner Hop, who is
-					shot by Lupo. Hop tells Tripitikas to deliver the staff to its rightful owner and Tripitikas flees
-					with the staff. He is cornered on the rooftop before being pulled off the roof by the staff.
+					{content.description}
 				</span>
 				<div className={"buttons"}>
 					<button className={"play"}>
