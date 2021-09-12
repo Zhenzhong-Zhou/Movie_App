@@ -1,10 +1,10 @@
-import {useContext, useEffect, useState} from "react";
+import {useContext, useEffect} from "react";
 import {DataGrid} from "@mui/x-data-grid";
 import {DeleteOutline} from "@material-ui/icons";
 import {Link} from "react-router-dom";
 import "./styles.css";
 import {MovieContext} from "../../context/movieContext/MovieContext";
-import {fetchMovies} from "../../context/movieContext/apiCall";
+import {deleteMovies, fetchMovies} from "../../context/movieContext/apiCall";
 
 const ProductList = () => {
 	const {movies, dispatch} = useContext(MovieContext);
@@ -14,7 +14,7 @@ const ProductList = () => {
 	}, [dispatch]);
 
 	const handleDelete = (id) => {
-		// setData(data.filter(item => item.id !== id));
+		deleteMovies(id, dispatch);
 	};
 
 	const columns = [
@@ -45,10 +45,10 @@ const ProductList = () => {
 			renderCell: (params) => {
 				return (
 					<>
-						<Link to={`/movie/${params.row.id}`}>
+						<Link to={`/movie/${params.row._id}`}>
 							<button className={"productListEdit"}>Edit</button>
 						</Link>
-						<DeleteOutline className={"productListDelete"} onClick={() => handleDelete(params.row.id)}/>
+						<DeleteOutline className={"productListDelete"} onClick={() => handleDelete(params.row._id)}/>
 					</>
 				);
 			}
@@ -57,7 +57,7 @@ const ProductList = () => {
 
 	return (
 		<div className={"productList"}>
-			<DataGrid columns={columns} rows={movies} getRowId={row => row._id} pageSize={5} rowsPerPageOptions={[5, 10, 20, {value: movies.length, label: 'All'}]} pagination checkboxSelection disableSelectionOnClick/>
+			<DataGrid columns={columns} rows={movies} getRowId={row => row._id} pageSize={10} rowsPerPageOptions={[5, 10, 20, {value: movies.length, label: 'All'}]} pagination checkboxSelection disableSelectionOnClick/>
 		</div>
 	);
 };

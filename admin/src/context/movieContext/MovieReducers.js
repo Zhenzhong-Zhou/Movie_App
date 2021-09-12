@@ -1,4 +1,4 @@
-import {FETCH_MOVIE_FAILURE, FETCH_MOVIE_START, FETCH_MOVIE_SUCCESS} from "../../constants/actionTypes";
+import {DELETE_MOVIE_FAILURE, DELETE_MOVIE_START, DELETE_MOVIE_SUCCESS, FETCH_MOVIE_FAILURE, FETCH_MOVIE_START, FETCH_MOVIE_SUCCESS} from "../../constants/actionTypes";
 
 const MovieReducers = (states, actions) => {
 	switch (actions.type) {
@@ -17,6 +17,24 @@ const MovieReducers = (states, actions) => {
 		case FETCH_MOVIE_FAILURE:
 			return {
 				movies: [],
+				isFetching: false,
+				error: true
+			};
+		case DELETE_MOVIE_START:
+			return {
+				...states,
+				isFetching: true,
+				error: false
+			};
+		case DELETE_MOVIE_SUCCESS:
+			return {
+				movies: states.movies.filter((movie) => movie._id !== actions.payload),
+				isFetching: false,
+				error: false
+			};
+		case DELETE_MOVIE_FAILURE:
+			return {
+				...states,
 				isFetching: false,
 				error: true
 			};
