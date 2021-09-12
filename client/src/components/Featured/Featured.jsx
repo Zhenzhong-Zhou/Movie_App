@@ -9,8 +9,7 @@ console.log("content: ", content.image)
 	useEffect(() => {
 		const fetchRandomContent = async () => {
 			try {
-				const {data} = await axiosInstance.get(`/movies/random?type=${type}`,
-					{headers: {token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxM2IwY2QzNzFmNTRiMTYyMTNiZWU4YiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMTQxNjg3MywiZXhwIjoxNjMxNDIwNDczfQ.Sde8hEsT5e4DnIrTHrB3tMWnNqkWG-AFCYN-bd1L5OE"}});
+				const {data} = await axiosInstance.get(`/movies/random?type=${type}`);
 				console.log("Data: ", data);
 				setContent(data[0]);
 			} catch (error) {

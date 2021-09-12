@@ -11,8 +11,7 @@ const List = ({item, index}) => {
 	useEffect(() => {
 		const fetchMovie = async () => {
 			try {
-				const {data} = await axiosInstance.get(`/movies/find/${item}`,
-					{headers: {token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxM2IwY2QzNzFmNTRiMTYyMTNiZWU4YiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMTQxNjg3MywiZXhwIjoxNjMxNDIwNDczfQ.Sde8hEsT5e4DnIrTHrB3tMWnNqkWG-AFCYN-bd1L5OE"}});
+				const {data} = await axiosInstance.get(`/movies/find/${item}`);
 				setMovie(data);
 			} catch (error) {
 				console.log(error);
