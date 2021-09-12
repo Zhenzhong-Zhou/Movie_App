@@ -11,7 +11,7 @@ const Home = ({type}) => {
 		const fetchRandomLists = async () => {
 			try {
 				const {data} = await axiosInstance.get(`lists${type ? "?type=" + type : ""}${genre ? "&genre=" + genre : ""}`,
-					{headers: {token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxM2IwY2QzNzFmNTRiMTYyMTNiZWU4YiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMTM1MzU1MywiZXhwIjoxNjMxMzU3MTUzfQ.IfgMagv9Pz0nMSUuF14gSQZ7MDjQmannXT5tF4s-XVg"  }});
+					{headers: {token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxM2IwY2QzNzFmNTRiMTYyMTNiZWU4YiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMTQxNjg3MywiZXhwIjoxNjMxNDIwNDczfQ.Sde8hEsT5e4DnIrTHrB3tMWnNqkWG-AFCYN-bd1L5OE"}});
 				setLists(data);
 			} catch (error) {
 				console.log(error);
