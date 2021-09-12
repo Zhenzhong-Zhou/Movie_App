@@ -6,7 +6,7 @@ const ProductForm = () => {
 	return (
 		<form className={"productForm"}>
 			<div className={"productFormLeft"}>
-				<label>Product Name</label>
+				<label>Movie Name</label>
 				<input type={"text"} placeholder={"Apple Airpods"}/>
 				<label>In Stock</label>
 				<select name={"inStock"} id={"idStock"}>

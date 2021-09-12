@@ -8,8 +8,8 @@ const Product = () => {
 	return (
 		<div className={"product"}>
 			<div className={"productTitleContainer"}>
-				<h1 className={"productTitle"}>Product</h1>
-				<Link to={"/NewProduct"}>
+				<h1 className={"productTitle"}>Movie</h1>
+				<Link to={"/NewMovie"}>
 					<button className={"productAddButton"}>Create</button>
 				</Link>
 			</div>

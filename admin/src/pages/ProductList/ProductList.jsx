@@ -1,9 +1,9 @@
 import {useState} from "react";
 import {DataGrid} from "@mui/x-data-grid";
+import {DeleteOutline} from "@material-ui/icons";
+import {Link} from "react-router-dom";
 import "./styles.css";
 import {productRows} from "../../boilerplateData";
-import {Link} from "react-router-dom";
-import {DeleteOutline} from "@material-ui/icons";
 
 const ProductList = () => {
 	const [data, setData] = useState(productRows);
@@ -54,7 +54,7 @@ const ProductList = () => {
 			renderCell: (params) => {
 				return (
 					<>
-						<Link to={`/product/${params.row.id}`}>
+						<Link to={`/movie/${params.row.id}`}>
 							<button className={"productListEdit"}>Edit</button>
 						</Link>
 						<DeleteOutline className={"productListDelete"} onClick={() => handleDelete(params.row.id)}/>

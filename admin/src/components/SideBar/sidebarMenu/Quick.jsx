@@ -1,4 +1,4 @@
-import {AttachMoney, BarChart, PermIdentity, Storefront} from "@material-ui/icons";
+import {AttachMoney, BarChart, PermIdentity, PlayCircleOutline} from "@material-ui/icons";
 import "./styles.css";
 import {Link} from "react-router-dom";
 
@@ -10,8 +10,8 @@ const Quick = () => {
 				<Link to={"/users"} className={"link"}>
 					<li className={"sidebarListItem"}><PermIdentity className={"sidebarIcon"}/>Users</li>
 				</Link>
-				<Link to={"/products"} className={"link"}>
-					<li className={"sidebarListItem"}><Storefront className={"sidebarIcon"}/>Products</li>
+				<Link to={"/movies"} className={"link"}>
+					<li className={"sidebarListItem"}><PlayCircleOutline className={"sidebarIcon"}/>Movies</li>
 				</Link>
 				<Link to={"/transactions"} className={"link"}>
 					<li className={"sidebarListItem"}><AttachMoney className={"sidebarIcon"}/>Transactions</li>

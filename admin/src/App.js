@@ -22,13 +22,13 @@ const App = () => {
 					<Route exact path={"/newUser"}>
 						<NewUser/>
 					</Route>
-					<Route exact path={"/products"}>
+					<Route exact path={"/movies"}>
 						<ProductList/>
 					</Route>
-					<Route exact path={"/product/:productId"}>
+					<Route exact path={"/movie/:movieId"}>
 						<Product/>
 					</Route>
-					<Route exact path={"/newProduct"}>
+					<Route exact path={"/newMovie"}>
 						<NewProduct/>
 					</Route>
 				</Switch>
