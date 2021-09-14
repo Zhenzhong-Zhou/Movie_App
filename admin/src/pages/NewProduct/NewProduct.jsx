@@ -7,22 +7,54 @@ const NewProduct = () => {
 			<form className={"newProductForm"}>
 				<div className={"newProductItem"}>
 					<label>Image</label>
-					<input type={"file"} id={"file"}/>
+					<input type={"file"} id={"image"}/>
 				</div>
 				<div className={"newProductItem"}>
-					<label>Name</label>
-					<input type={"text"} placeholder={"Apple Airpods"}/>
+					<label>Image Title</label>
+					<input type={"file"} id={"imageTitle"}/>
 				</div>
 				<div className={"newProductItem"}>
-					<label>Stock</label>
-					<input type={"text"} placeholder={"123"}/>
+					<label>Image Thumbnail</label>
+					<input type={"file"} id={"imageSmall"}/>
 				</div>
 				<div className={"newProductItem"}>
-					<label>Active</label>
-					<select name={"active"} id={"active"}>
-						<option value={"yes"}>Yes</option>
-						<option value={"no"}>No</option>
+					<label>Movie Title</label>
+					<input type={"text"} placeholder={"Movie Title"}/>
+				</div>
+				<div className={"newProductItem"}>
+					<label>Description</label>
+					<input type={"text"} placeholder={"Description"}/>
+				</div>
+				<div className={"newProductItem"}>
+					<label>Year</label>
+					<input type={"text"} placeholder={"Year"}/>
+				</div>
+				<div className={"newProductItem"}>
+					<label>Genre</label>
+					<input type={"text"} placeholder={"Genre"}/>
+				</div>
+				<div className={"newProductItem"}>
+					<label>Duration</label>
+					<input type={"text"} placeholder={"Duration"}/>
+				</div>
+				<div className={"newProductItem"}>
+					<label>Limit</label>
+					<input type={"text"} placeholder={"Limit"}/>
+				</div>
+				<div className={"newProductItem"}>
+					<label>Is Series?</label>
+					<select name={"isSeries"} id={"isSeries"}>
+						<option value={"false"}>No</option>
+						<option value={"true"}>Yes</option>
 					</select>
+				</div>
+				<div className={"newProductItem"}>
+					<label>Trailer</label>
+					<input type={"file"} id={"trailer"}/>
+				</div>
+				<div className={"newProductItem"}>
+					<label>Video</label>
+					<input type={"file"} id={"video"}/>
 				</div>
 				<button className={"newProductButton"}>Create</button>
 			</form>
