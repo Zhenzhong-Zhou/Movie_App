@@ -11,13 +11,13 @@ const App = () => {
 	return (
 		<BrowserRouter>
 			<Switch>
-				<Route path={"/login"} component={() => !user ? <Login/> : <Redirect to={"/"}/>}/>
+				<Route path={"/login"} component={() => user ? <Redirect to={"/"}/> : <Login/>}/>
 				{user &&
 				<>
 					<NavBar/>
 					<div className={"container"}>
 						<SideBar/>
-						<Route exact path={"/"} component={Home}/>
+						<Route path={"/"} exact component={() => (user ? <Home/> : <Redirect to={"/"}/>)}/>
 						<Route exact path={"/users"} component={UserList}/>
 						<Route exact path={"/user/:userId"} component={User}/>
 						<Route exact path={"/newUser"} component={NewUser}/>
