@@ -1,11 +1,4 @@
-import {
-	deleteMovieFailure,
-	deleteMovieStart,
-	deleteMovieSuccess,
-	fetchMovieFailure,
-	fetchMovieStart,
-	fetchMovieSuccess
-} from "./MovieActions";
+import {createMovieFailure, createMovieStart, createMovieSuccess, deleteMovieFailure, deleteMovieStart, deleteMovieSuccess, fetchMovieFailure, fetchMovieStart, fetchMovieSuccess} from "./MovieActions";
 import {axiosInstance} from "../../api";
 
 // FETCH
@@ -17,6 +10,17 @@ export const fetchMovies = async (dispatch) => {
 		dispatch(fetchMovieSuccess(data));
 	} catch (error) {
 		dispatch(fetchMovieFailure());
+	}
+};
+// CREATE
+export const createMovie = async (movie, dispatch) => {
+	dispatch(createMovieStart())
+	try {
+		const {data} = await axiosInstance.post("movies",  movie,
+			{headers: {token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken}});
+		dispatch(createMovieSuccess(data));
+	} catch (error) {
+		dispatch(createMovieFailure());
 	}
 };
 // DELETE
