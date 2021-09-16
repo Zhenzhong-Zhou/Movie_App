@@ -2,7 +2,7 @@ import {useContext} from "react";
 import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 import {NavBar, SideBar} from "./components";
 import "./App.css";
-import {Home, List, ListItem, Login, NewProduct, NewUser, Product, ProductList, User, UserList} from "./pages";
+import {Home, List, ListItem, Login, NewList, NewProduct, NewUser, Product, ProductList, User, UserList} from "./pages";
 import {AuthContext} from "./context/authContext/AuthContext";
 
 const App = () => {
@@ -26,7 +26,7 @@ const App = () => {
 						<Route exact path={"/newMovie"} component={NewProduct}/>
 						<Route exact path={"/lists"} component={List}/>
 						<Route exact path={"/list/:listId"} component={ListItem}/>
-						{/*<Route exact path={"/newList"} component={NewProduct}/>*/}
+						<Route exact path={"/newList"} component={NewList}/>
 					</div>
 				</>
 				}

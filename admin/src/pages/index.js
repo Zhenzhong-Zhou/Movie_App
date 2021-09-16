@@ -11,3 +11,4 @@ export {default as Product} from "./Product/Product";
 export {default as NewProduct} from "./NewProduct/NewProduct";
 export {default as List} from "./List/List";
 export {default as ListItem} from "./ListItem/ListItem";
+export {default as NewList} from "./NewList/NewList";
