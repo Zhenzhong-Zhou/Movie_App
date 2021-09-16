@@ -1,6 +1,6 @@
 import {Link, useLocation} from "react-router-dom";
-import {Publish} from "@material-ui/icons";
 import "./styles.css";
+import {Publish} from "@material-ui/icons";
 
 const Product = () => {
 	const {movie} = useLocation();
