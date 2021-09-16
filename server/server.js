@@ -6,6 +6,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 import cors from "cors";
 
+import indexRoutes from "./routes/index.js"
 import authRoutes from "./routes/auth.js";
 import usersRoutes from "./routes/users.js";
 import moviesRoutes from "./routes/movies.js";
@@ -22,6 +23,7 @@ app.use(morgan("common"));
 app.use(cors());
 
 // Routes
+app.use("/", indexRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/users", usersRoutes);
 app.use("/api/movies", moviesRoutes);

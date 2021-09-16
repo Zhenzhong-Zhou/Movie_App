@@ -6,7 +6,7 @@ import List from "./List/List";
 const Lists = ({list}) => {
 	const [isMoved, setIsMoved] = useState(false);
 	const [slideNumber, setSlideNumber] = useState(0);
-	const [clickLimit, setClickLimit] = useState(window.innerWidth / 230);
+	const [clickLimit] = useState(window.innerWidth / 230);
 	const listRef = useRef();
 
 	const handleClick = (direction) => {
