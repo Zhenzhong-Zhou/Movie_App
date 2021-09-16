@@ -48,24 +48,24 @@ const ListReducers = (states, actions) => {
 				error: true
 			};
 		// Update
-		// case UPDATE_LIST_START:
-		// 	return {
-		// 		...states,
-		// 		isFetching: true,
-		// 		error: false
-		// 	};
-		// case UPDATE_LIST_SUCCESS:
-		// 	return {
-		// 		lists: states.lists.map(movie =>  movie._id === actions.payload._id && actions.payload),
-		// 		isFetching: false,
-		// 		error: false
-		// 	};
-		// case UPDATE_LIST_FAILURE:
-		// 	return {
-		// 		...states,
-		// 		isFetching: false,
-		// 		error: true
-		// 	};
+		case UPDATE_LIST_START:
+			return {
+				...states,
+				isFetching: true,
+				error: false
+			};
+		case UPDATE_LIST_SUCCESS:
+			return {
+				lists: states.lists.map(list =>  list._id === actions.payload._id && actions.payload),
+				isFetching: false,
+				error: false
+			};
+		case UPDATE_LIST_FAILURE:
+			return {
+				...states,
+				isFetching: false,
+				error: true
+			};
 		// Delete
 		case DELETE_LIST_START:
 			return {

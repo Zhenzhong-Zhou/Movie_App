@@ -34,18 +34,18 @@ export const createListFailure = () => ({
 	type: CREATE_LIST_FAILURE
 });
 // UPDATE
-// export const updateListStart = () => ({
-// 	type: UPDATE_LIST_START
-// });
+export const updateListStart = () => ({
+	type: UPDATE_LIST_START
+});
 
-// export const updateListSuccess = (movie) => ({
-// 	type: UPDATE_LIST_SUCCESS,
-// 	payload: movie
-// });
+export const updateListSuccess = (list) => ({
+	type: UPDATE_LIST_SUCCESS,
+	payload: list
+});
 
-// export const updateListFailure = () => ({
-// 	type: UPDATE_LIST_FAILURE
-// });
+export const updateListFailure = () => ({
+	type: UPDATE_LIST_FAILURE
+});
 // DELETE
 export const deleteListStart = () => ({
 	type: DELETE_LIST_START

@@ -31,16 +31,16 @@ export const createLists = async (list, dispatch) => {
 	}
 };
 // UPDATE
-// export const updateLists = async (id, dispatch) => {
-// 	dispatch(updateListStart())
-// 	try {
-// 		const {data} = await axiosInstance.put(`movies/${id}`,
-// 			{headers: {token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken}});
-// 		dispatch(updateListSuccess(data));
-// 	} catch (error) {
-// 		dispatch(updateListFailure());
-// 	}
-// };
+export const updateLists = async (id, dispatch) => {
+	dispatch(updateListStart())
+	try {
+		const {data} = await axiosInstance.put(`lists/${id}`,
+			{headers: {token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken}});
+		dispatch(updateListSuccess(data));
+	} catch (error) {
+		dispatch(updateListFailure());
+	}
+};
 // DELETE
 export const deleteLists = async (id, dispatch) => {
 	dispatch(deleteListStart())
