@@ -12,9 +12,9 @@ export const fetchListStart = () => ({
 	type: FETCH_LIST_START
 });
 
-export const fetchListSuccess = (movies) => ({
+export const fetchListSuccess = (lists) => ({
 	type: FETCH_LIST_SUCCESS,
-	payload: movies
+	payload: lists
 });
 
 export const fetchListFailure = () => ({

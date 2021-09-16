@@ -2,7 +2,7 @@ import {createContext, useReducer} from "react";
 import ListReducers from "./ListReducers";
 
 const INITIAL_STATE = {
-	movies: [],
+	lists: [],
 	isFetching: false,
 	error: false
 };
