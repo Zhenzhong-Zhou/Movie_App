@@ -9,3 +9,4 @@ export {default as NewUserForm} from "./NewUser/NewUserForm/NewUserForm";
 export {default as ProductList} from "./ProductList/ProductList";
 export {default as Product} from "./Product/Product";
 export {default as NewProduct} from "./NewProduct/NewProduct";
+export {default as List} from "./List/List";
