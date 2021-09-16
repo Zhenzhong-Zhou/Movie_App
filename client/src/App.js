@@ -12,7 +12,7 @@ const App = () => {
 				<Route path={"/login"} exact component={() => (!user ? <Login/> : <Redirect to={"/"}/>)}/>
 				{user && (
 					<>
-						<Route path={"/movies"} exact component={() => <Home type={"movies"}/>}/>
+						<Route path={"/movies"} exact component={() => <Home type={"movie"}/>}/>
 						<Route path={"/series"} exact component={() => <Home type={"series"}/>}/>
 						<Route path={"/watch"} exact component={() => <Watch/>}/>
 					</>

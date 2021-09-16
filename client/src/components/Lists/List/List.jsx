@@ -11,7 +11,8 @@ const List = ({item, index}) => {
 	useEffect(() => {
 		const fetchMovie = async () => {
 			try {
-				const {data} = await axiosInstance.get(`/movies/find/${item}`);
+				const {data} = await axiosInstance.get(`/movies/find/${item}`,
+					{headers: {token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken}});
 				setMovie(data);
 			} catch (error) {
 				console.log(error);

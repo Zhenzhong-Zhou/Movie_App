@@ -3,14 +3,14 @@ import {InfoOutlined, PlayArrow} from "@material-ui/icons";
 import "./featured.scss";
 import {axiosInstance} from "../../api";
 
-const Featured = ({type}) => {
+const Featured = ({type, setGenre}) => {
 	const [content, setContent] = useState({});
 console.log("content: ", content.image)
 	useEffect(() => {
 		const fetchRandomContent = async () => {
 			try {
-				const {data} = await axiosInstance.get(`/movies/random?type=${type}`);
-				console.log("Data: ", data);
+				const {data} = await axiosInstance.get(`/movies/random?type=${type}`,
+					{headers: {token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken}});
 				setContent(data[0]);
 			} catch (error) {
 				console.log(error);
@@ -24,7 +24,7 @@ console.log("content: ", content.image)
 			{type && (
 				<div className={"category"}>
 					<span>{type === "movies" ? "Movies" : "TV Series"}</span>
-					<select name={"genre"} id={"genre"}>
+					<select name={"genre"} id={"genre"} onChange={event => setGenre(event.target.value)}>
 						<option>Genre</option>
 						<option value="adventure">Adventure</option>
 						<option value="comedy">Comedy</option>
