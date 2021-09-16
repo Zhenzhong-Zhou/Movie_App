@@ -25,6 +25,8 @@ const App = () => {
 						<Route exact path={"/movie/:movieId"} component={Product}/>
 						<Route exact path={"/newMovie"} component={NewProduct}/>
 						<Route exact path={"/lists"} component={List}/>
+						{/*<Route exact path={"/list/:listId"} component={Product}/>*/}
+						{/*<Route exact path={"/newList"} component={NewProduct}/>*/}
 					</div>
 				</>
 				}

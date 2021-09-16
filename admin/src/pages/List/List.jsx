@@ -3,45 +3,26 @@ import {DataGrid} from "@mui/x-data-grid";
 import {DeleteOutline} from "@material-ui/icons";
 import {Link} from "react-router-dom";
 import "./list.css";
-import {MovieContext} from "../../context/movieContext/MovieContext";
-import {deleteMovies, fetchMovies} from "../../context/movieContext/apiCall";
+import {fetchLists} from "../../context/listContext/apiCall";
+import {ListContext} from "../../context/listContext/ListContext";
 
 const List = () => {
-	const {movies, dispatch} = useContext(MovieContext);
+	const {lists, dispatch} = useContext(ListContext);
 
 	useEffect(() => {
-		fetchMovies(dispatch);
+		fetchLists(dispatch);
 	}, [dispatch]);
 
 	const handleDelete = (id) => {
-		deleteMovies(id, dispatch);
+
 	};
 
 	const columns = [
-		{ field: '_id', headerName: 'ID', width: 90 },
-		{
-			field: 'movie',
-			headerName: 'Movie',
-			width: 150,
-			editable: true,
-			renderCell: (params) => {
-				return (
-					<div className={"productListItem"}>
-						<img className={"productListImg"} src={params.row.image} alt={"Avatar"}/>
-						{params.row.title}
-					</div>
-				);
-			}
-		},
+		{ field: '_id', headerName: 'ID', width: 250 },
+		{field: 'title', headerName: 'Title', width: 250, editable: true,},
 		{field: 'genre', headerName: 'Genre', width: 150, editable: true,},
-		{field: 'year', headerName: 'Year', width: 150, editable: true,},
-		{field: 'limit', headerName: 'Limit', width: 150, editable: true,},
-		{field: 'isSeries', headerName: 'Series', width: 150, editable: true,},
-		{
-			field: "action",
-			headerName: "Action",
-			width: 150,
-			editable: true,
+		{field: 'type', headerName: 'type', width: 150, editable: true,},
+		{field: "action", headerName: "Action", width: 150, editable: true,
 			renderCell: (params) => {
 				return (
 					<>
@@ -57,7 +38,9 @@ const List = () => {
 
 	return (
 		<div className={"productList"}>
-			<DataGrid columns={columns} rows={movies} getRowId={row => row._id} pageSize={10} rowsPerPageOptions={[5, 10, 20, {value: movies.length, label: 'All'}]} pagination checkboxSelection disableSelectionOnClick/>
+			<DataGrid columns={columns} rows={lists} getRowId={row => row._id} pageSize={10}
+			          rowsPerPageOptions={[5, 10, 20, {value: lists.length, label: 'All'}]} pagination
+			          checkboxSelection disableSelectionOnClick/>
 		</div>
 	);
 };
