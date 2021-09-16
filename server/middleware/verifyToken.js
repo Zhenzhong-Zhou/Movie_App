@@ -14,6 +14,6 @@ export const verifyToken = async (req, res, next) => {
 			return res.status(401).json("Invalid authenticated!");
 		}
 	} catch (error) {
-
+		console.log(error);
 	}
 };
