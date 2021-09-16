@@ -1,9 +1,11 @@
+import {useContext} from "react";
 import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 import "./app.scss";
 import {Home, Login, Register, Watch} from "./pages";
+import {AuthContext} from "./context/authContext/AuthContext";
 
 const App = () => {
-	const user = true;
+	const {user} = useContext(AuthContext);
 	return (
 		<BrowserRouter>
 			<Switch>
