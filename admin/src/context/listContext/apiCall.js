@@ -20,16 +20,16 @@ export const fetchLists = async (dispatch) => {
 	}
 };
 // CREATE
-// export const createLists = async (movie, dispatch) => {
-// 	dispatch(createListStart())
-// 	try {
-// 		const {data} = await axiosInstance.post("movies",  movie,
-// 			{headers: {token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken}});
-// 		dispatch(createListSuccess(data));
-// 	} catch (error) {
-// 		dispatch(createListFailure());
-// 	}
-// };
+export const createLists = async (list, dispatch) => {
+	dispatch(createListStart())
+	try {
+		const {data} = await axiosInstance.post("lists",  list,
+			{headers: {token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken}});
+		dispatch(createListSuccess(data));
+	} catch (error) {
+		dispatch(createListFailure());
+	}
+};
 // UPDATE
 // export const updateLists = async (id, dispatch) => {
 // 	dispatch(updateListStart())

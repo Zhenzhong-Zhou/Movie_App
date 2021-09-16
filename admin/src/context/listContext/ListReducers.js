@@ -29,24 +29,24 @@ const ListReducers = (states, actions) => {
 				error: true
 			};
 		// Create
-		// case CREATE_LIST_START:
-		// 	return {
-		// 		...states,
-		// 		isFetching: true,
-		// 		error: false
-		// 	};
-		// case CREATE_LIST_SUCCESS:
-		// 	return {
-		// 		lists: [...states.lists, actions.payload],
-		// 		isFetching: false,
-		// 		error: false
-		// 	};
-		// case CREATE_LIST_FAILURE:
-		// 	return {
-		// 		...states,
-		// 		isFetching: false,
-		// 		error: true
-		// 	};
+		case CREATE_LIST_START:
+			return {
+				...states,
+				isFetching: true,
+				error: false
+			};
+		case CREATE_LIST_SUCCESS:
+			return {
+				lists: [...states.lists, actions.payload],
+				isFetching: false,
+				error: false
+			};
+		case CREATE_LIST_FAILURE:
+			return {
+				...states,
+				isFetching: false,
+				error: true
+			};
 		// Update
 		// case UPDATE_LIST_START:
 		// 	return {

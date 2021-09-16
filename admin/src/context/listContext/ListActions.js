@@ -21,18 +21,18 @@ export const fetchListFailure = () => ({
 	type: FETCH_LIST_FAILURE
 });
 // CREATE
-// export const createListStart = () => ({
-// 	type: CREATE_LIST_START
-// });
+export const createListStart = () => ({
+	type: CREATE_LIST_START
+});
 
-// export const createListSuccess = (movie) => ({
-// 	type: CREATE_LIST_SUCCESS,
-// 	payload: movie
-// });
+export const createListSuccess = (list) => ({
+	type: CREATE_LIST_SUCCESS,
+	payload: list
+});
 
-// export const createListFailure = () => ({
-// 	type: CREATE_LIST_FAILURE
-// });
+export const createListFailure = () => ({
+	type: CREATE_LIST_FAILURE
+});
 // UPDATE
 // export const updateListStart = () => ({
 // 	type: UPDATE_LIST_START

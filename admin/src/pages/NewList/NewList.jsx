@@ -3,9 +3,12 @@ import "./newlist.css";
 import {MovieContext} from "../../context/movieContext/MovieContext";
 import {ListContext} from "../../context/listContext/ListContext";
 import {fetchMovies} from "../../context/movieContext/apiCall";
+import {createLists} from "../../context/listContext/apiCall";
+import {useHistory} from "react-router-dom";
 
 const NewProduct = () => {
 	const [list, setList] = useState(null);
+	const history = useHistory();
 
 	const {dispatch} = useContext(ListContext);
 	const {movies, dispatch: dispatchMovie} = useContext(MovieContext);
@@ -24,20 +27,20 @@ const NewProduct = () => {
 		setList({...list, [event.target.name]: value});
 	};
 
-	console.log(list)
-
 	const handleSubmit = (event) => {
 		event.preventDefault();
+		createLists(list, dispatch);
+		history.push("/lists");
 	};
 
 	return (
 		<div className={"newProduct"}>
-			<h1 className={"newProductTitle"}>New Movie</h1>
+			<h1 className={"newProductTitle"}>New List</h1>
 			<form className={"newProductForm"}>
 				<div className={"formLeft"}>
 					<div className={"newProductItem"}>
 						<label>List Title</label>
-						<input type={"text"} placeholder={"Movie Title"} name={"title"} onChange={handleChange}/>
+						<input type={"text"} placeholder={"Popular Movies"} name={"title"} onChange={handleChange}/>
 					</div>
 					<div className={"newProductItem"}>
 						<label>Genre</label>
