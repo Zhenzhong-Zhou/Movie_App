@@ -6,11 +6,13 @@ import {
 	DELETE_MOVIE_SUCCESS,
 	FETCH_MOVIE_FAILURE,
 	FETCH_MOVIE_START,
-	FETCH_MOVIE_SUCCESS
+	FETCH_MOVIE_SUCCESS, UPDATE_MOVIE_FAILURE, UPDATE_MOVIE_START, UPDATE_MOVIE_SUCCESS
 } from "../../constants/actionTypes";
+import movie from "../../../../server/models/movie";
 
 const MovieReducers = (states, actions) => {
 	switch (actions.type) {
+		// Fetch
 		case FETCH_MOVIE_START:
 			return {
 				movies: [],
@@ -29,6 +31,7 @@ const MovieReducers = (states, actions) => {
 				isFetching: false,
 				error: true
 			};
+		// Create
 		case CREATE_MOVIE_START:
 			return {
 				...states,
@@ -47,6 +50,26 @@ const MovieReducers = (states, actions) => {
 				isFetching: false,
 				error: true
 			};
+		// Update
+		case UPDATE_MOVIE_START:
+			return {
+				...states,
+				isFetching: true,
+				error: false
+			};
+		case UPDATE_MOVIE_SUCCESS:
+			return {
+				movies: states.movies.map(movie =>  movie._id === actions.payload._id && actions.payload),
+				isFetching: false,
+				error: false
+			};
+		case UPDATE_MOVIE_FAILURE:
+			return {
+				...states,
+				isFetching: false,
+				error: true
+			};
+		// Delete
 		case DELETE_MOVIE_START:
 			return {
 				...states,
