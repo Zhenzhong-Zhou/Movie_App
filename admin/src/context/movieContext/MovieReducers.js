@@ -8,7 +8,6 @@ import {
 	FETCH_MOVIE_START,
 	FETCH_MOVIE_SUCCESS, UPDATE_MOVIE_FAILURE, UPDATE_MOVIE_START, UPDATE_MOVIE_SUCCESS
 } from "../../constants/actionTypes";
-import movie from "../../../../server/models/movie";
 
 const MovieReducers = (states, actions) => {
 	switch (actions.type) {

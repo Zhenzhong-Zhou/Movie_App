@@ -35,7 +35,7 @@ export const createMovie = async (movie, dispatch) => {
 	}
 };
 // UPDATE
-export const createMovie = async (id, dispatch) => {
+export const updateMovie = async (id, dispatch) => {
 	dispatch(updateMovieStart())
 	try {
 		const {data} = await axiosInstance.put(`movies/${id}`,
