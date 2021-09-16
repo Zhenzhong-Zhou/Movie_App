@@ -21,31 +21,31 @@ export const fetchListFailure = () => ({
 	type: FETCH_LIST_FAILURE
 });
 // CREATE
-export const createListStart = () => ({
-	type: CREATE_LIST_START
-});
+// export const createListStart = () => ({
+// 	type: CREATE_LIST_START
+// });
 
-export const createListSuccess = (movie) => ({
-	type: CREATE_LIST_SUCCESS,
-	payload: movie
-});
+// export const createListSuccess = (movie) => ({
+// 	type: CREATE_LIST_SUCCESS,
+// 	payload: movie
+// });
 
-export const createListFailure = () => ({
-	type: CREATE_LIST_FAILURE
-});
+// export const createListFailure = () => ({
+// 	type: CREATE_LIST_FAILURE
+// });
 // UPDATE
-export const updateListStart = () => ({
-	type: UPDATE_LIST_START
-});
+// export const updateListStart = () => ({
+// 	type: UPDATE_LIST_START
+// });
 
-export const updateListSuccess = (movie) => ({
-	type: UPDATE_LIST_SUCCESS,
-	payload: movie
-});
+// export const updateListSuccess = (movie) => ({
+// 	type: UPDATE_LIST_SUCCESS,
+// 	payload: movie
+// });
 
-export const updateListFailure = () => ({
-	type: UPDATE_LIST_FAILURE
-});
+// export const updateListFailure = () => ({
+// 	type: UPDATE_LIST_FAILURE
+// });
 // DELETE
 export const deleteListStart = () => ({
 	type: DELETE_LIST_START

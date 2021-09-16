@@ -67,24 +67,24 @@ const ListReducers = (states, actions) => {
 		// 		error: true
 		// 	};
 		// Delete
-		// case DELETE_LIST_START:
-		// 	return {
-		// 		...states,
-		// 		isFetching: true,
-		// 		error: false
-		// 	};
-		// case DELETE_LIST_SUCCESS:
-		// 	return {
-		// 		lists: states.lists.filter((movie) => movie._id !== actions.payload),
-		// 		isFetching: false,
-		// 		error: false
-		// 	};
-		// case DELETE_LIST_FAILURE:
-		// 	return {
-		// 		...states,
-		// 		isFetching: false,
-		// 		error: true
-		// 	};
+		case DELETE_LIST_START:
+			return {
+				...states,
+				isFetching: true,
+				error: false
+			};
+		case DELETE_LIST_SUCCESS:
+			return {
+				lists: states.lists.filter((list) => list._id !== actions.payload),
+				isFetching: false,
+				error: false
+			};
+		case DELETE_LIST_FAILURE:
+			return {
+				...states,
+				isFetching: false,
+				error: true
+			};
 		default:
 			return {...states}
 	}

@@ -42,13 +42,13 @@ export const fetchLists = async (dispatch) => {
 // 	}
 // };
 // DELETE
-// export const deleteLists = async (id, dispatch) => {
-// 	dispatch(deleteListStart())
-// 	try {
-// 		await axiosInstance.delete(`movies/${id}`,
-// 			{headers: {token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken}});
-// 		dispatch(deleteListSuccess(id));
-// 	} catch (error) {
-// 		dispatch(deleteListFailure());
-// 	}
-// };
+export const deleteLists = async (id, dispatch) => {
+	dispatch(deleteListStart())
+	try {
+		await axiosInstance.delete(`lists/${id}`,
+			{headers: {token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken}});
+		dispatch(deleteListSuccess(id));
+	} catch (error) {
+		dispatch(deleteListFailure());
+	}
+};

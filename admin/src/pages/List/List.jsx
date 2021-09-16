@@ -3,7 +3,7 @@ import {DataGrid} from "@mui/x-data-grid";
 import {DeleteOutline} from "@material-ui/icons";
 import {Link} from "react-router-dom";
 import "./list.css";
-import {fetchLists} from "../../context/listContext/apiCall";
+import {deleteLists, fetchLists} from "../../context/listContext/apiCall";
 import {ListContext} from "../../context/listContext/ListContext";
 
 const List = () => {
@@ -14,7 +14,7 @@ const List = () => {
 	}, [dispatch]);
 
 	const handleDelete = (id) => {
-
+		deleteLists(id, dispatch);
 	};
 
 	const columns = [
